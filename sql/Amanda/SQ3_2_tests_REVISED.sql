@@ -1,5 +1,5 @@
 -- NULL scores are a separately reported known data limitation; SQL AVG/STDDEV ignore them.
--- COUNT(*) review minima retain original group method. AI-T2-01.
+-- COUNT(*) review minima retain original group method..
 -- SQ3 validation checks (Amanda)
 -- Revised from original: invalid 'copied reviews' inference replaced by factual bounds/keys check.
 -- This script needs v_reception, v_sq4_analysis and detailed rating tables.
