@@ -1,0 +1,8 @@
+query,nr,test,observed,result
+SQ3 tests,1,Exactly one active rule set,1,PASS
+SQ3 tests,2,One row per movie in v_reception,5449 rows / 5449 movies,PASS
+SQ3 tests,3,Category dummy variables sum to 1,0,PASS
+SQ3 tests,4,C-score is between 0 and 1,0.09987685382780090133 to 0.55961514542126970300,PASS
+SQ3 tests,5,Detailed review scores within expected 0-100 range,0 invalid scores,PASS
+SQ3 tests,6,Critic mean and metascore positively correlate (r > 0.8),0.997,PASS
+SQ3 tests,7,One row per movie in v_sq4_analysis,4143 rows / 4143 movies,PASS

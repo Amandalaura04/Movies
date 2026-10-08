@@ -1,0 +1,548 @@
+{
+  "executed_utc": "2026-10-08T17:36:27.712174+00:00",
+  "database": "movies_codex_test_20261008",
+  "server_version": "PostgreSQL 18.6 (Postgres.app) on aarch64-apple-darwin23.6.0, compiled by Apple clang version 15.0.0 (clang-1500.3.9.4), 64-bit",
+  "checks": [
+    {
+      "test": "SQ1_descriptive_stats returns nonempty DataFrame",
+      "passed": true,
+      "observed": {
+        "rows": 11344,
+        "columns": [
+          "movie_id",
+          "title",
+          "user_count",
+          "user_mean",
+          "expert_count",
+          "expert_mean"
+        ]
+      }
+    },
+    {
+      "test": "SQ1_descriptive_stats CSV round trip",
+      "passed": true,
+      "observed": 11344
+    },
+    {
+      "test": "SQ2_controversy_score returns nonempty DataFrame",
+      "passed": true,
+      "observed": {
+        "rows": 5449,
+        "columns": [
+          "movie_id",
+          "title",
+          "expert_mean",
+          "expert_sd",
+          "expert_count",
+          "user_mean",
+          "user_sd",
+          "user_count",
+          "d_i",
+          "udisp_i",
+          "edisp_i",
+          "controversy_score"
+        ]
+      }
+    },
+    {
+      "test": "SQ2_controversy_score CSV round trip",
+      "passed": true,
+      "observed": 5449
+    },
+    {
+      "test": "SQ3_get_reception returns nonempty DataFrame",
+      "passed": true,
+      "observed": {
+        "rows": 5449,
+        "columns": [
+          "movie_id",
+          "title",
+          "threshold_set",
+          "critic_n",
+          "viewer_n",
+          "critic_mean",
+          "viewer_mean",
+          "d_between",
+          "vdisp",
+          "edisp",
+          "c_score",
+          "combined_mean",
+          "category",
+          "is_controversial",
+          "is_positive",
+          "is_negative",
+          "is_normal",
+          "c_decile",
+          "viewer_polarity",
+          "viewer_two_camps"
+        ]
+      }
+    },
+    {
+      "test": "SQ3_get_reception CSV round trip",
+      "passed": true,
+      "observed": 5449
+    },
+    {
+      "test": "SQ3_get_classification returns nonempty DataFrame",
+      "passed": true,
+      "observed": {
+        "rows": 4,
+        "columns": [
+          "threshold_set",
+          "category",
+          "n_movies",
+          "pct_of_movies",
+          "avg_critic",
+          "avg_viewer",
+          "avg_combined",
+          "avg_d",
+          "avg_vdisp",
+          "avg_edisp",
+          "avg_c",
+          "clearest_examples"
+        ]
+      }
+    },
+    {
+      "test": "SQ3_get_classification CSV round trip",
+      "passed": true,
+      "observed": 4
+    },
+    {
+      "test": "SQ3_threshold_sensitivity returns nonempty DataFrame",
+      "passed": true,
+      "observed": {
+        "rows": 5,
+        "columns": [
+          "threshold_set",
+          "c_cut",
+          "pos_neg",
+          "is_active",
+          "n_movies",
+          "pct_controversial",
+          "pct_positive",
+          "pct_normal",
+          "pct_negative",
+          "pct_same_label_as_active"
+        ]
+      }
+    },
+    {
+      "test": "SQ3_threshold_sensitivity CSV round trip",
+      "passed": true,
+      "observed": 5
+    },
+    {
+      "test": "SQ3_viewer_polarity returns nonempty DataFrame",
+      "passed": true,
+      "observed": {
+        "rows": 5,
+        "columns": [
+          "category",
+          "n_movies",
+          "avg_pct_extreme_viewers",
+          "avg_two_camps_pct",
+          "pct_movies_two_camps",
+          "corr_c_polarity"
+        ]
+      }
+    },
+    {
+      "test": "SQ3_viewer_polarity CSV round trip",
+      "passed": true,
+      "observed": 5
+    },
+    {
+      "test": "SQ4_controversy_revenue_evaluation returns nonempty DataFrame",
+      "passed": true,
+      "observed": {
+        "rows": 4143,
+        "columns": [
+          "movie_id",
+          "title",
+          "release_year",
+          "category",
+          "is_controversial",
+          "is_positive",
+          "is_negative",
+          "is_normal",
+          "c_score",
+          "c_decile",
+          "d_between",
+          "vdisp",
+          "edisp",
+          "critic_mean",
+          "critic_n",
+          "viewer_mean",
+          "viewer_n",
+          "combined_mean",
+          "viewer_polarity",
+          "worldwide_box_office",
+          "ln_revenue",
+          "production_budget",
+          "ln_budget",
+          "theatre_count",
+          "n_sales_matches"
+        ]
+      }
+    },
+    {
+      "test": "SQ4_controversy_revenue_evaluation CSV round trip",
+      "passed": true,
+      "observed": 4143
+    },
+    {
+      "test": "SQ4a_hypothesis_correlations returns nonempty DataFrame",
+      "passed": true,
+      "observed": {
+        "rows": 2,
+        "columns": [
+          "hypothesis",
+          "n_movies",
+          "pearson_log_revenue",
+          "spearman"
+        ]
+      }
+    },
+    {
+      "test": "SQ4a_hypothesis_correlations CSV round trip",
+      "passed": true,
+      "observed": 2
+    },
+    {
+      "test": "SQ4a_revenue_quartiles returns nonempty DataFrame",
+      "passed": true,
+      "observed": {
+        "rows": 8,
+        "columns": [
+          "grouping",
+          "quartile",
+          "n_movies",
+          "median_revenue_mln"
+        ]
+      }
+    },
+    {
+      "test": "SQ4a_revenue_quartiles CSV round trip",
+      "passed": true,
+      "observed": 8
+    },
+    {
+      "test": "SQ4b_category_revenue returns nonempty DataFrame",
+      "passed": true,
+      "observed": {
+        "rows": 4,
+        "columns": [
+          "category",
+          "n_movies",
+          "p25_mln",
+          "median_mln",
+          "p75_mln",
+          "mean_ln_revenue"
+        ]
+      }
+    },
+    {
+      "test": "SQ4b_category_revenue CSV round trip",
+      "passed": true,
+      "observed": 4
+    },
+    {
+      "test": "SQ4b_controversy_quartiles returns nonempty DataFrame",
+      "passed": true,
+      "observed": {
+        "rows": 4,
+        "columns": [
+          "c_quartile",
+          "c_from",
+          "c_to",
+          "n_movies",
+          "median_revenue_mln",
+          "n_with_budget",
+          "mean_log1p_revenue_minus_log1p_budget"
+        ]
+      }
+    },
+    {
+      "test": "SQ4b_controversy_quartiles CSV round trip",
+      "passed": true,
+      "observed": 4
+    },
+    {
+      "test": "Imported studio",
+      "passed": true,
+      "observed": 1116
+    },
+    {
+      "test": "Imported genre",
+      "passed": true,
+      "observed": 27
+    },
+    {
+      "test": "Imported actor",
+      "passed": true,
+      "observed": 24847
+    },
+    {
+      "test": "Imported director",
+      "passed": true,
+      "observed": 6128
+    },
+    {
+      "test": "Imported movie",
+      "passed": true,
+      "observed": 11344
+    },
+    {
+      "test": "Imported sales_final",
+      "passed": true,
+      "observed": 30611
+    },
+    {
+      "test": "Imported overall_rating",
+      "passed": true,
+      "observed": 11344
+    },
+    {
+      "test": "Imported user_rating_detailed",
+      "passed": true,
+      "observed": 316212
+    },
+    {
+      "test": "Imported expert_rating_detailed",
+      "passed": true,
+      "observed": 238737
+    },
+    {
+      "test": "Imported movie_genre",
+      "passed": true,
+      "observed": 27051
+    },
+    {
+      "test": "Imported movie_actor",
+      "passed": true,
+      "observed": 51952
+    },
+    {
+      "test": "Imported movie_director",
+      "passed": true,
+      "observed": 11346
+    },
+    {
+      "test": "Imported movie_sales",
+      "passed": true,
+      "observed": 8862
+    },
+    {
+      "test": "Expected review-minimum population",
+      "passed": true,
+      "observed": 5449
+    },
+    {
+      "test": "Expected positive-revenue population",
+      "passed": true,
+      "observed": 4143
+    },
+    {
+      "test": "Categories match original CSV audit",
+      "passed": true,
+      "observed": {
+        "Controversial": 4322,
+        "Positive": 709,
+        "Normal": 392,
+        "Negative": 26
+      }
+    },
+    {
+      "test": "Unique movie per SQ3 and SQ4 row",
+      "passed": true,
+      "observed": {
+        "sq3": 5449,
+        "sq4": 4143
+      }
+    },
+    {
+      "test": "SQ4 references SQ3 population",
+      "passed": true,
+      "observed": 4143
+    },
+    {
+      "test": "SQ3 dummies sum to one",
+      "passed": true,
+      "observed": 5449
+    },
+    {
+      "test": "Budget filter",
+      "passed": true,
+      "observed": 3060
+    },
+    {
+      "test": "Known missing critic scores explicitly recorded",
+      "passed": true,
+      "observed": {
+        "missing": 2,
+        "out_of_range": 0
+      }
+    },
+    {
+      "test": "Spearman midpoint ranks critic_mean",
+      "passed": true,
+      "observed": {
+        "sql": -0.103,
+        "python": -0.10276908215876655
+      }
+    },
+    {
+      "test": "Spearman midpoint ranks viewer_n",
+      "passed": true,
+      "observed": {
+        "sql": 0.689,
+        "python": 0.6894793192449109
+      }
+    },
+    {
+      "test": "SQL: Exactly one active rule set",
+      "passed": true,
+      "observed": "1"
+    },
+    {
+      "test": "SQL: One row per movie in v_reception",
+      "passed": true,
+      "observed": "5449 rows / 5449 movies"
+    },
+    {
+      "test": "SQL: Category dummy variables sum to 1",
+      "passed": true,
+      "observed": "0"
+    },
+    {
+      "test": "SQL: C-score is between 0 and 1",
+      "passed": true,
+      "observed": "0.09987685382780090133 to 0.55961514542126970300"
+    },
+    {
+      "test": "SQL: Detailed review scores within expected 0-100 range",
+      "passed": true,
+      "observed": "0 invalid scores"
+    },
+    {
+      "test": "SQL: Critic mean and metascore positively correlate (r > 0.8)",
+      "passed": true,
+      "observed": "0.997"
+    },
+    {
+      "test": "SQL: One row per movie in v_sq4_analysis",
+      "passed": true,
+      "observed": "4143 rows / 4143 movies"
+    },
+    {
+      "test": "Threshold mutation",
+      "passed": true,
+      "observed": "fixed_0.30"
+    },
+    {
+      "test": "Unknown threshold rejected",
+      "passed": true,
+      "observed": "ValueError"
+    },
+    {
+      "test": "Threshold restored",
+      "passed": true,
+      "observed": "fixed_0.25"
+    },
+    {
+      "test": "Executed SQL sql/Jonas/Query_Jonas_SQ1_V2.sql",
+      "passed": true,
+      "observed": "success"
+    },
+    {
+      "test": "Executed SQL sql/Amanda/SQ3a_classification.sql",
+      "passed": true,
+      "observed": "success"
+    },
+    {
+      "test": "Executed SQL sql/Amanda/SQ3b_sensitivity.sql",
+      "passed": true,
+      "observed": "success"
+    },
+    {
+      "test": "Executed SQL sql/Amanda/SQ3c_polarity.sql",
+      "passed": true,
+      "observed": "success"
+    },
+    {
+      "test": "Executed SQL sql/Nethmi/SQ4a_H1_H2_PROPOSAL.sql",
+      "passed": true,
+      "observed": "success"
+    },
+    {
+      "test": "Executed SQL sql/Jonas/SQ4b_E2_PROPOSAL.sql",
+      "passed": true,
+      "observed": "success"
+    }
+  ],
+  "exports": [
+    {
+      "file": "SQ1_descriptive_stats.csv",
+      "rows": 11344,
+      "sha256": "87f71aa341730d3b0688e401b1ad08c61216a2345895505781badaf0c254c8a5"
+    },
+    {
+      "file": "SQ2_controversy_score.csv",
+      "rows": 5449,
+      "sha256": "6d8b8372e5283945bdbaee75b6057a2b45b7932a746d77ddd59f2fea58e0572f"
+    },
+    {
+      "file": "SQ3_get_reception.csv",
+      "rows": 5449,
+      "sha256": "0057120ae4fa1c8d81a0d89814dec7e5f51e09507dfe6c14f2eb6e508ba34b0b"
+    },
+    {
+      "file": "SQ3_get_classification.csv",
+      "rows": 4,
+      "sha256": "9249ab7d878fc8e6777cfe9c13e9fb83d3a31d600ace35fecffa1b2c3558c393"
+    },
+    {
+      "file": "SQ3_threshold_sensitivity.csv",
+      "rows": 5,
+      "sha256": "de9bcacdad841509d5cf53a97c086b737735c5a760a6a48c8257c6ff51c5ef3f"
+    },
+    {
+      "file": "SQ3_viewer_polarity.csv",
+      "rows": 5,
+      "sha256": "0a9103a622b6bc70ebd0bac7d13f2476f1dba0a43f459f7c06480bca90178a52"
+    },
+    {
+      "file": "SQ4_controversy_revenue_evaluation.csv",
+      "rows": 4143,
+      "sha256": "b2e5ba36f2486d8d3a022d1fd1501d16a45ad20b0a2a47aef913d11eea4203df"
+    },
+    {
+      "file": "SQ4a_hypothesis_correlations.csv",
+      "rows": 2,
+      "sha256": "da12eaf33f7e2683ca7e75802866466ed4be6373ac9a19d10d1c05a7b4ee639c"
+    },
+    {
+      "file": "SQ4a_revenue_quartiles.csv",
+      "rows": 8,
+      "sha256": "752a0a0da5165c35af6ef08ef25e108888bd9f5b9fbb6b1dde5e817eb48e4c99"
+    },
+    {
+      "file": "SQ4b_category_revenue.csv",
+      "rows": 4,
+      "sha256": "a8e8b1b75e63d83d817c79cd59ee342a04a79599322d04c2710f1b827450ecb6"
+    },
+    {
+      "file": "SQ4b_controversy_quartiles.csv",
+      "rows": 4,
+      "sha256": "a60a183518d6e10c6664cb926f7ba209fba4bb0300534c7dfa523153f2b01c80"
+    }
+  ],
+  "passed": true,
+  "limitations": [
+    "Two missing critic scores are retained; AVG/STDDEV ignore NULL, COUNT(*) includes reviews.",
+    "SQ4a/SQ4b are tested proposals awaiting confirmation by their intended student owners.",
+    "Technical checks are agent-run; independent student verification remains required."
+  ]
+}

@@ -1,0 +1,9 @@
+grouping,quartile,n_movies,median_revenue_mln
+H1: critic score quartile,1,1036,42.5
+H1: critic score quartile,2,1036,42.4
+H1: critic score quartile,3,1036,26.4
+H1: critic score quartile,4,1035,16.6
+H2: review volume quartile,1,1036,2.9
+H2: review volume quartile,2,1036,13.4
+H2: review volume quartile,3,1036,49.6
+H2: review volume quartile,4,1035,167.1

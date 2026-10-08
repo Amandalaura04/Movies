@@ -1,0 +1,5 @@
+c_quartile,c_from,c_to,n_movies,median_revenue_mln,n_with_budget,mean_log1p_revenue_minus_log1p_budget
+1,0.1,0.263,1036,15.1,641,0.63
+2,0.263,0.306,1036,43.7,790,0.79
+3,0.306,0.349,1036,43.3,810,0.68
+4,0.349,0.547,1035,31.9,819,0.52
