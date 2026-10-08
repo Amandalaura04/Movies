@@ -1,7 +1,7 @@
 -- SQ2 controversy score
 -- Original author: Nethmi Atapattu
 -- Database naming / re-runnable-view adjustments: Amanda Luijendijk
--- Verify output against final database before submission.
+-- Executed against supplied final CSVs; independent student review required.
 
 CREATE OR REPLACE VIEW movie_controversy AS
 WITH expert_stats AS (
