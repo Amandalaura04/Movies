@@ -1,0 +1,15 @@
+.env
+.env.*
+!.env.example
+*.pem
+*.dump
+*.backup
+__pycache__/
+.ipynb_checkpoints/
+.DS_Store
+output/
+*.pyc
+# Raw course data and personal documents intentionally excluded from public repository
+data/
+*.xlsx
+*.docx
