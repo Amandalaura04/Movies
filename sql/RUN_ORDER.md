@@ -1,14 +1,10 @@
-# SQL execution order — verification required
+# Tested SQL run order
+1. Use `scripts/rebuild_database.py` to create a NEW database and load the 13 final CSVs. It refuses an existing database. The schema's DROP statements execute only in that new empty database.
+2. `sql/Nethmi/SQ2_Nethmi.sql` creates `movie_controversy`.
+3. `sql/Amanda/SQ3_1_setup_ORIGINAL_SANITIZED.sql` creates thresholds, classification function, SQ3 views and indexes. It replaces objects, so run it only through the fresh database build.
+4. `sql/Amanda/SQ4_setup_Amanda.sql` creates the SQ4 analysis view.
+5. Execute Jonas SQ1, Amanda SQ3a/b/c and revised integrity checks.
+6. Execute Nethmi SQ4a and Jonas SQ4b files marked PROPOSAL, awaiting their confirmation. These are descriptive summaries, not causal/inferential hypothesis proof.
+7. Run the shared encapsulator and integration tests; evidence is in `tests/evidence/`.
 
-These files were prepared by different students and must be reconciled against the same physical schema.
-
-1. Create/load the 13 tables locally. Source CSV files must be obtained through the course; do not redistribute them without authorization.
-2. Validate Jonas' SQ1 query; it refers to `user_rating` / `expert_rating` while the physical import is likely `user_rating_detailed` / `expert_rating_detailed`.
-3. Run Nethmi's SQL to create `movie_controversy`.
-4. Run Amanda's `SQ3_1_setup_ORIGINAL_SANITIZED.sql`, which creates `v_controversy`, `classification_thresholds`, `v_polarity` and `v_reception`. **It drops and recreates existing objects**; run on a test database first.
-5. Run Amanda's `SQ4_setup_Amanda.sql` to create `v_sq4_analysis`.
-6. Run `SQ3a_classification.sql`, `SQ3b_sensitivity.sql`, `SQ3c_polarity.sql` and `SQ3_2_tests_REVISED.sql`.
-7. Add the group's completed H1, H2 and E2 queries (currently not yet available in GitHub).
-8. Run the Python encapsulator and save actual test outputs.
-
-Do **not** run `SQ3_setup_INTEGRATION_DRAFT.sql` instead of the original setup. It uses a different expected schema.
+The obsolete incompatible setup is archived under `sql/archive/` and excluded from the build. The two missing expert scores are explicitly reported separately from out-of-range scores. SQL aggregates retain the original NULL handling. See `docs/ai/AI_T2_01.md` for integration changes.
