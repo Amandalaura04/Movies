@@ -1,6 +1,5 @@
 -- SQ1: mean critic score, mean viewer score and number of reviews
 -- Original SQ1 work: Jonas Breve
--- Integration corrections: Codex at Amanda request, 2026-10-08 (AI-T2-01).
 -- Physical schema names reconciled; original calculations preserved.
 
 -- Query 1: How many films are in the database?

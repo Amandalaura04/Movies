@@ -1,5 +1,4 @@
 -- Local proposal, not confirmed as the named student's final contribution.
--- Integration and tie corrections: Codex at Amanda request (AI-T2-01).
 -- SQ4b | E2: does worldwide revenue differ by reception category and controversy level?
 -- Draft for Jonas: adapt and add your own name and student ID
 
