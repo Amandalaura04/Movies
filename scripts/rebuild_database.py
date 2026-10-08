@@ -5,7 +5,7 @@ import psycopg2
 from psycopg2 import sql
 
 ROOT = Path(__file__).resolve().parents[1]
-SETUPS = ['sql/Nethmi/SQ2_Nethmi.sql', 'sql/Amanda/SQ3_1_setup_ORIGINAL_SANITIZED.sql',
+SETUPS = ['sql/Nethmi/SQ2_Nethmi.sql', 'sql/Amanda/SQ3_1_setup.sql',
           'sql/Amanda/SQ4_setup_Amanda.sql', 'sql/Nethmi/SQ4a_Nethmi.sql']
 
 def rebuild(data_dir, dbname):

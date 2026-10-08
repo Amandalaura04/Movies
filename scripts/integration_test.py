@@ -55,7 +55,7 @@ def run(output, private, allow_threshold=False):
   counts=frames['SQ4a_sample_counts'].iloc[0]
   check('SQ4a H1 band population',int(frames['SQ4a_critic_bands'].n_films.sum())==int(counts.films_for_h1),int(counts.films_for_h1))
   check('SQ4a H2 quartile population',int(frames['SQ4a_viewer_quartiles'].n_films.sum())==int(counts.films_for_h2),int(counts.films_for_h2))
-  sql_tests=db._query((ROOT/'sql/Amanda/SQ3_2_tests_REVISED.sql').read_text());sql_tests.to_csv(output/'sql_integrity_tests.csv',index=False)
+  sql_tests=db._query((ROOT/'sql/Amanda/SQ3_2_tests.sql').read_text());sql_tests.to_csv(output/'sql_integrity_tests.csv',index=False)
   for row in sql_tests.to_dict('records'):check('SQL: '+row['test'],row['result']=='PASS',row['observed'])
   if allow_threshold:
    if not os.getenv('PGDATABASE','').startswith('movies_codex_test_'):raise ValueError('Threshold checks require a disposable movies_codex_test_ database')
