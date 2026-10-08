@@ -1,0 +1,2 @@
+# Amanda source from the supplied ZIP
+The eight source files are taken from DB_Assignment_Amanda.zip. SQL, Python cleaning source and query files are unchanged. DB_Encapsulator.ipynb has only its literal connection settings replaced with PGUSER, PGPASSWORD, PGHOST, PGPORT and PGDATABASE; original stored outputs were cleared. The functions and calculations were not replaced by the earlier shared notebook.
