@@ -1,6 +1,8 @@
 # Movie box office database
 PostgreSQL and Python course project with a shared team Encapsulator, 13-table schema, reproducible final-CSV import and real integration evidence. Original attributed work: Jonas SQ1, Nethmi SQ2, Amanda SQ3 and SQ4 setup. SQ4a/SQ4b are tested proposals awaiting confirmation by the intended owners.
 
+Current technical evidence: [61/61 checks on the full rebuild and 58/58 on the existing database](tests/INTEGRATION_RESULTS.md). These are agent-run checks. Final student review, SQ4 confirmation, private data delivery and individual logbooks remain pending. Earlier audit reports describe historical states and are not the current execution status.
+
 ## Reproduce the integration
 Run from the repository root. PostgreSQL must be running, and the configured local role must be allowed to create a database. Obtain the authorized private package containing `data/private/` through the agreed course submission route.
 
