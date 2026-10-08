@@ -7,3 +7,6 @@ Their exact originals have **not** been published to this public repository. The
 Expected functions: reception classification, threshold sensitivity, viewer polarity, and SQ4 data extraction. Verify all methods against the running database and record actual CSV outputs.
 
 Do not publish personal AI logs, student numbers, or raw course data.
+
+
+Current shared, tested entry point: [team module](../shared/movie_db.py) and [executed notebook](../shared/HeyEncapsulator.ipynb). This older Amanda-only module is retained as source provenance; its separate runtime behavior is not part of the new 11-method test claim.
