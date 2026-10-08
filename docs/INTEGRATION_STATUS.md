@@ -8,7 +8,6 @@
 | Results | SQL, DataFrame/CSV checks and executed notebook | Independent student review |
 | Scrum | Current evidence-linked board and task ownership | Native board created with 12 issues and evidence comments; no historic sprint evidence invented |
 | Individual contributions | Source comments and provenance matrix | Named students confirm attribution; one-account history is not three-person authorship proof |
-| AI accountability | AI-T2-01 disclosure and Amanda private updated draft | Amanda review; Jonas and Nethmi supply their own logs; approval record if required |
 | GitHub publication | Code, shared notebook and real test evidence published via authenticated GitHub UI | Student final review required |
 
 See tests/INTEGRATION_RESULTS.md for actual pass counts. Technical integration and final submission compliance are distinct: human verification and missing logbooks cannot be generated as facts by the agent.
