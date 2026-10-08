@@ -34,3 +34,9 @@ The public repository excludes raw course CSVs, private student logbooks, passwo
 Remaining human requirements: independent student verification and explanation of code; private data delivery. This repository does not certify a final grade or claim unobserved individual work.
 
 The active schema uses expert_rating, user_rating and sales, matching the supplied table-name reference. Source CSV filenames remain unchanged and are mapped by data/manifest.json. SQ4a uses 5,645 single-sales-match films; the existing SQ3/SQ4 analysis view uses 4,143 review-eligible positive-revenue films. These samples are intentionally kept distinct.
+
+## Database design
+
+![Movie database entity relationship diagram](docs/images/ERD_Movie_Database.jpeg)
+
+Conceptual ERD supplied by the team. Physical table and column names are defined in the SQL schema.
