@@ -8,9 +8,9 @@ Updated 8 October 2026. This board records current execution and source attribut
 | #3 SQ4 analysis view | Amanda | Agent-tested; student review | [view](../sql/Amanda/SQ4_setup_Amanda.sql), [results](../tests/INTEGRATION_RESULTS.md) |
 | #4 SQ3/SQ4 Python | Amanda | Agent-tested; student review | [module](../python/shared/movie_db.py) |
 | #5 SQ1 SQL | Jonas | Names reconciled, executed; student review | [SQL](../sql/Jonas/Query_Jonas_SQ1_V2.sql) |
-| #6 SQ4b E2 | Jonas | Proposal tested; final confirmation pending | [proposal](../sql/Jonas/SQ4b_E2_PROPOSAL.sql) |
+| #6 SQ4b E2 | Jonas | Outside current delivery | Archived source only |
 | #7 SQ2 controversy | Nethmi | Agent-tested; student review | [SQL](../sql/Nethmi/SQ2_Nethmi.sql) |
-| #8 SQ4a H1/H2 | Nethmi | Proposal tested; final confirmation pending | [proposal](../sql/Nethmi/SQ4a_H1_H2_PROPOSAL.sql) |
+| #8 SQ4a H1/H2 | Nethmi | Supplied script and Python extraction tested | [SQL](../sql/Nethmi/SQ4a_Nethmi.sql), [results](../tests/INTEGRATION_RESULTS.md) |
 | #9 Shared Encapsulator | Group | Integrated and tested; student review | [executed notebook](../python/shared/HeyEncapsulator.ipynb) |
 | #10 Schema and data | Group | Fresh database reproduced; private delivery pending | [manifest](../data/manifest.json), [build](../scripts/rebuild_database.py) |
 | #11 Contribution documentation | Group | Source attribution documented | [provenance](../docs/CONTRIBUTIONS.md) |
