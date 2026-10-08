@@ -1,14 +1,8 @@
-# Submission status as of 8 October 2026
-| Requirement | Prepared and tested here | Still required |
-| --- | --- | --- |
-| SQL SQ1–SQ3 and SQ4 setup | Complete executable build and real execution | Student review |
-| SQ4a H1/H2 and SQ4b E2 | Local proposals integrated and tested | Nethmi/Jonas confirm or adapt their final analyses |
-| Shared Python Encapsulator | Uploaded team notebook integrated; 11 extraction methods tested | Each student reproduce and explain their contribution |
-| Database files | 13 CSVs with exact manifest, portable import and private backup | Deliver private package to lecturer through permitted route |
-| Results | SQL, DataFrame/CSV checks and executed notebook | Independent student review |
-| Scrum | Current evidence-linked board and task ownership | Native board created with 12 issues and evidence comments; no historic sprint evidence invented |
-| Individual contributions | Source comments and provenance matrix | Named students confirm attribution; one-account history is not three-person authorship proof |
-| GitHub publication | Code, shared notebook and real test evidence published via authenticated GitHub UI | Student final review required |
-
-
-[Native task board](https://github.com/users/Amandalaura04/projects/3): seven tasks Agent tested / student review, five In Progress. All 12 issue comments link current evidence.
+# Current submission status
+- Current schema: expert_rating, user_rating and sales. All runnable code uses these names.
+- Shared Python: ten extractors, including three for the supplied Nethmi SQ4a; executed notebook and real CSV evidence available.
+- Integration: fresh thirteen-CSV build and 59/59 checks passed; see tests/INTEGRATION_RESULTS.md.
+- SQ4b: excluded. Earlier proposal retained only as archived source.
+- Private database delivery: final CSVs, database backup and extraction outputs prepared locally; lecturer delivery route has not been provided.
+- Scrum: native public board and twelve existing issues are available. Historical SQ4b task is outside the current delivery.
+- Final review: students must check sample-selection decisions and confirm their source contributions. The two SQ4 samples intentionally differ.
