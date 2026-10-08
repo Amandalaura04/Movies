@@ -20,10 +20,10 @@ WITH tests AS (
   (SELECT MIN(c_score)>=0 AND MAX(c_score)<=1 FROM v_reception)
  UNION ALL SELECT 5,'Detailed review scores within expected 0-100 range',
   (SELECT COUNT(*) FROM (
-    SELECT score FROM user_rating_detailed UNION ALL SELECT score FROM expert_rating_detailed
+    SELECT score FROM user_rating UNION ALL SELECT score FROM expert_rating
    ) scores WHERE score<0 OR score>100)::TEXT||' invalid scores',
   (SELECT COUNT(*)=0 FROM (
-    SELECT score FROM user_rating_detailed UNION ALL SELECT score FROM expert_rating_detailed
+    SELECT score FROM user_rating UNION ALL SELECT score FROM expert_rating
    ) scores WHERE score<0 OR score>100)
  UNION ALL SELECT 6,'Critic mean and metascore positively correlate (r > 0.8)',
   (SELECT ROUND(CORR(c.critic_mean,o.metascore)::numeric,3)::TEXT

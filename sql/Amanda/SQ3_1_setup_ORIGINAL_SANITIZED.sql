@@ -51,7 +51,7 @@ SELECT movie_id,
  AVG((score >= 80)::INT) AS viewer_share_high,
  AVG((score <= 20 OR score >= 80)::INT) AS viewer_polarity,
  LEAST(AVG((score <= 20)::INT),AVG((score >= 80)::INT)) AS viewer_two_camps
-FROM user_rating_detailed GROUP BY movie_id;
+FROM user_rating GROUP BY movie_id;
 
 DROP VIEW IF EXISTS v_reception CASCADE;
 CREATE VIEW v_reception AS
@@ -73,19 +73,19 @@ SELECT cl.movie_id,cl.title,cl.threshold_set,
 FROM classified cl LEFT JOIN v_polarity p ON p.movie_id=cl.movie_id;
 
 DROP INDEX IF EXISTS idx_user_rating_movie_score;
-ANALYZE user_rating_detailed;
-EXPLAIN ANALYZE SELECT COUNT(*),AVG(score),STDDEV_POP(score) FROM user_rating_detailed
+ANALYZE user_rating;
+EXPLAIN ANALYZE SELECT COUNT(*),AVG(score),STDDEV_POP(score) FROM user_rating
 WHERE movie_id=(SELECT movie_id FROM movie WHERE title='Knock Down the House');
-CREATE INDEX idx_user_rating_movie_score ON user_rating_detailed(movie_id) INCLUDE(score);
-ANALYZE user_rating_detailed;
-EXPLAIN ANALYZE SELECT COUNT(*),AVG(score),STDDEV_POP(score) FROM user_rating_detailed
+CREATE INDEX idx_user_rating_movie_score ON user_rating(movie_id) INCLUDE(score);
+ANALYZE user_rating;
+EXPLAIN ANALYZE SELECT COUNT(*),AVG(score),STDDEV_POP(score) FROM user_rating
 WHERE movie_id=(SELECT movie_id FROM movie WHERE title='Knock Down the House');
 DROP INDEX IF EXISTS idx_expert_rating_movie_score;
-ANALYZE expert_rating_detailed;
-EXPLAIN ANALYZE SELECT COUNT(*),AVG(score),STDDEV_POP(score) FROM expert_rating_detailed
+ANALYZE expert_rating;
+EXPLAIN ANALYZE SELECT COUNT(*),AVG(score),STDDEV_POP(score) FROM expert_rating
 WHERE movie_id=(SELECT movie_id FROM movie WHERE title='Freddy Got Fingered');
-CREATE INDEX idx_expert_rating_movie_score ON expert_rating_detailed(movie_id) INCLUDE(score);
-ANALYZE expert_rating_detailed;
-EXPLAIN ANALYZE SELECT COUNT(*),AVG(score),STDDEV_POP(score) FROM expert_rating_detailed
+CREATE INDEX idx_expert_rating_movie_score ON expert_rating(movie_id) INCLUDE(score);
+ANALYZE expert_rating;
+EXPLAIN ANALYZE SELECT COUNT(*),AVG(score),STDDEV_POP(score) FROM expert_rating
 WHERE movie_id=(SELECT movie_id FROM movie WHERE title='Freddy Got Fingered');
 SELECT * FROM classification_thresholds ORDER BY c_cut,positive_min;

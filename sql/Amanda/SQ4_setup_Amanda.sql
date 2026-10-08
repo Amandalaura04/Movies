@@ -12,7 +12,7 @@ WITH sales_ranked AS (
  ABS(COALESCE(s.year,0)-EXTRACT(YEAR FROM m.reldate)),
  s.worldwide_box_office DESC NULLS LAST) AS rn
  FROM movie_sales ms
- JOIN sales_final s ON s.sales_id=ms.sales_id
+ JOIN sales s ON s.sales_id=ms.sales_id
  JOIN movie m ON m.movie_id=ms.movie_id)
 SELECT r.movie_id,r.title,
  EXTRACT(YEAR FROM m.reldate)::INT AS release_year,
