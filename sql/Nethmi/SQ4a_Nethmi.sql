@@ -1,14 +1,15 @@
+-- Re-runnable view; original supplied sample-selection rules retained.
 -- SQ4a (H1 and H2)
 -- H1: higher mean critic score  -> higher worldwide box-office revenue
 -- H2: higher viewer review count -> higher worldwide box-office revenue
 -- One row per film. Mean critic score and viewer review count are the SQ1 measures.
--- Revenue comes from movie -> movie_sales -> sales_final.
+-- Revenue comes from movie -> movie_sales -> sales.
 --
 -- ASSUMED NAMES (adjust if your schema differs):
 --   expert_rating(movie_id, review_id, score)
 --   user_rating(movie_id, review_id, score)
 --   movie_sales(movie_id, sales_id)
---   sales_final(sales_id, worldwide_box_office)
+--   sales(sales_id, worldwide_box_office)
 
 
 -- 1. Diagnostic: films with more than one sales match
@@ -22,7 +23,7 @@ HAVING COUNT(DISTINCT ms.sales_id) > 1;
 
 
 -- 2. Analysis view for H1 and H2
-CREATE VIEW sq4a_h1_h2 AS
+CREATE OR REPLACE VIEW sq4a_h1_h2 AS
 WITH expert_agg AS (
     SELECT movie_id,
            COUNT(*)   AS critic_review_count,

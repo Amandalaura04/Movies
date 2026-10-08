@@ -7,12 +7,12 @@ CREATE OR REPLACE VIEW movie_controversy AS
 WITH expert_stats AS (
     SELECT movie_id, COUNT(*) AS expert_count,
            AVG(score) AS expert_mean, STDDEV_POP(score) AS expert_sd
-    FROM expert_rating_detailed
+    FROM expert_rating
     GROUP BY movie_id HAVING COUNT(*) >= 5
 ), user_stats AS (
     SELECT movie_id, COUNT(*) AS user_count,
            AVG(score) AS user_mean, STDDEV_POP(score) AS user_sd
-    FROM user_rating_detailed
+    FROM user_rating
     GROUP BY movie_id HAVING COUNT(*) >= 5
 )
 SELECT m.movie_id, m.title,
