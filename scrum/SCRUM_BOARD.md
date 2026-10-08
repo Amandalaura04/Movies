@@ -1,5 +1,5 @@
 # Current evidence linked task board
-Updated 8 October 2026. This board records current execution and source attribution; it is not fabricated historical sprint evidence. Assignment owners below are intended student responsibilities. New integration and tests were performed by Codex at Amanda request.
+Updated 8 October 2026. This board records current execution and source attribution; it is not fabricated historical sprint evidence. Assignment owners below are intended student responsibilities. 
 
 | Task | Source owner | Current status | Evidence |
 | --- | --- | --- | --- |
