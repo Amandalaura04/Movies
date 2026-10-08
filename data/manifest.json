@@ -1,0 +1,156 @@
+[
+  {
+    "table": "studio",
+    "filename": "studio.csv",
+    "rows": 1116,
+    "columns": [
+      "name",
+      "studio_id"
+    ],
+    "sha256": "a0b6a1cce71067d9f683900845403c717e1372477ffbc86002e22472839b8baf"
+  },
+  {
+    "table": "genre",
+    "filename": "genre.csv",
+    "rows": 27,
+    "columns": [
+      "genre",
+      "genre_id"
+    ],
+    "sha256": "3b4425d93bcbb5e24660a5f6ee8cdfc96a0ea86e0414b486e44f9d2a64f336b2"
+  },
+  {
+    "table": "actor",
+    "filename": "actor.csv",
+    "rows": 24847,
+    "columns": [
+      "actor_id",
+      "first_name",
+      "last_name"
+    ],
+    "sha256": "8f2dc475276e57d7755ab4f90df036b8613484068797282957edd8acb3984686"
+  },
+  {
+    "table": "director",
+    "filename": "director.csv",
+    "rows": 6128,
+    "columns": [
+      "director_id",
+      "first_name",
+      "last_name"
+    ],
+    "sha256": "dc09ab2af634745276d548f1020a9cb656176ec0faa329fd627ca81094161740"
+  },
+  {
+    "table": "movie",
+    "filename": "movie.csv",
+    "rows": 11344,
+    "columns": [
+      "title",
+      "runtime",
+      "url",
+      "RelDate",
+      "awards",
+      "movie_id",
+      "studio_id"
+    ],
+    "sha256": "ffb2084110bb7a41ac65323207b20aeec707d8fd489a682407aaf763d05e9de1"
+  },
+  {
+    "table": "sales_final",
+    "filename": "sales_final.csv",
+    "rows": 30611,
+    "columns": [
+      "sales_id",
+      "title",
+      "year",
+      "release_date",
+      "genre",
+      "international_box_office",
+      "domestic_box_office",
+      "worldwide_box_office",
+      "production_budget",
+      "opening_weekend",
+      "theatre_count",
+      "avg run per theatre",
+      "runtime",
+      "creative_type"
+    ],
+    "sha256": "c93de199740cffd500ffb256127faaf8827dddf7827dd0df4f62616220f47dfb"
+  },
+  {
+    "table": "overall_rating",
+    "filename": "overall_rating.csv",
+    "rows": 11344,
+    "columns": [
+      "metascore",
+      "userscore_100",
+      "movie_id"
+    ],
+    "sha256": "cdf625c55d19b15f2ed638f5134fd5d88028b0b13561885e35e96d12209afa3b"
+  },
+  {
+    "table": "user_rating_detailed",
+    "filename": "user_rating_detailed.csv",
+    "rows": 316212,
+    "columns": [
+      "movie_id",
+      "score",
+      "dateP",
+      "review_id"
+    ],
+    "sha256": "b6382d1839419cef106bb8250e616b530610597f781dcc1ed107b700494b5ce8"
+  },
+  {
+    "table": "expert_rating_detailed",
+    "filename": "expert_rating_detailed.csv",
+    "rows": 238737,
+    "columns": [
+      "movie_id",
+      "score",
+      "dateP",
+      "review_id"
+    ],
+    "sha256": "fe069a488e7fa09f36a56dadc732633fccbbcd9e7fc7a8b0071a7d429ffc6986"
+  },
+  {
+    "table": "movie_genre",
+    "filename": "movie_genre.csv",
+    "rows": 27051,
+    "columns": [
+      "movie_id",
+      "genre_id"
+    ],
+    "sha256": "2f190190b146d6f61d01e46fce960acbd615f4de25aa9832790644218b630f16"
+  },
+  {
+    "table": "movie_actor",
+    "filename": "movie_actor.csv",
+    "rows": 51952,
+    "columns": [
+      "movie_id",
+      "actor_id"
+    ],
+    "sha256": "25b030672c8dc83396c50983f63636de27498d8c234bc95146eceac245b5f1b5"
+  },
+  {
+    "table": "movie_director",
+    "filename": "movie_director.csv",
+    "rows": 11346,
+    "columns": [
+      "movie_id",
+      "director_id"
+    ],
+    "sha256": "b18b3b9e012ba730b7cd0ea0c733e31538dbd78129a6984d79088bc57bee40b3"
+  },
+  {
+    "table": "movie_sales",
+    "filename": "movie_sales.csv",
+    "rows": 8862,
+    "columns": [
+      "movie_id",
+      "sales_id"
+    ],
+    "sha256": "26a3086f4374865e3e7ac177c50c25a9598ad9109f13b72316a4c77a53e82293"
+  }
+]
