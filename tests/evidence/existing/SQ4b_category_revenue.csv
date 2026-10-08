@@ -1,0 +1,5 @@
+category,n_movies,p25_mln,median_mln,p75_mln,mean_ln_revenue
+Controversial,3357,6.6,40.1,119.3,16.98
+Positive,472,2.2,14.4,83.3,16.32
+Normal,296,1.8,8.6,43.7,15.85
+Negative,18,0.3,7.0,23.4,14.78

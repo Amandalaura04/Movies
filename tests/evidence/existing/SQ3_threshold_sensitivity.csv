@@ -1,0 +1,6 @@
+threshold_set,c_cut,pos_neg,is_active,n_movies,pct_controversial,pct_positive,pct_normal,pct_negative,pct_same_label_as_active
+fixed_0.20,0.2,70/40,False,5449,93.4,5.0,1.5,0.0,85.9
+val_65_45,0.25,65/45,False,5449,79.3,16.0,3.8,0.8,96.6
+fixed_0.25,0.25,70/40,True,5449,79.3,13.0,7.2,0.5,100.0
+fixed_0.30,0.3,70/40,False,5449,53.4,21.9,23.0,1.7,74.1
+p75,0.35165,70/40,False,5449,25.0,27.9,43.4,3.7,45.7
