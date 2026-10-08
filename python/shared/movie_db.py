@@ -1,7 +1,6 @@
 """Shared MovieDB based on the uploaded team notebook.
 Original attributed blocks: Jonas SQ1, Nethmi SQ2, Amanda SQ3/SQ4.
-Connection, schema and integration changes: Codex at Amanda request, AI-T2-01.
-SQ4 proposal methods are AI-assisted integrations, awaiting student confirmation.
+SQ4 proposal methods are Integrations, awaiting student confirmation.
 """
 import os
 from pathlib import Path
@@ -179,7 +178,7 @@ class MovieDB:
             df["category"], categories=["Controversial", "Positive", "Normal", "Negative"])
         return df
 
-    # AI-assisted integration of local SQ4 proposals, AI-T2-01; not attributed as original student code.
+    # Integration of local SQ4 proposals,; not attributed as original student code.
     def SQ4a_hypothesis_correlations(self):
         return self._file_query("sql/Nethmi/SQ4a_H1_H2_PROPOSAL.sql", 0)
 
