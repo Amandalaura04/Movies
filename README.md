@@ -1,7 +1,7 @@
 # Movie box office database
-PostgreSQL and Python course project with a shared team Encapsulator, 13-table schema, reproducible final-CSV import and real integration evidence. Original attributed work: Jonas SQ1, Nethmi SQ2, Amanda SQ3 and SQ4 setup. SQ4a/SQ4b are tested proposals awaiting confirmation by the intended owners.
+PostgreSQL and Python course project with a shared team Encapsulator, 13-table schema, reproducible final-CSV import and real integration evidence. Original attributed work: Jonas SQ1, Nethmi SQ2, Amanda SQ3 and SQ4 setup. The active SQ4a is Nethmi's supplied script; SQ4b is excluded from this delivery.
 
-Current technical evidence: [61/61 checks on the full rebuild and 58/58 on the existing database](tests/INTEGRATION_RESULTS.md). These are agent-run checks. Final student review, SQ4 confirmation, private data delivery remain pending. Earlier audit reports describe historical states and are not the current execution status.
+Current technical evidence: [59/59 checks on the chosen schema and supplied SQ4a](tests/INTEGRATION_RESULTS.md). These are agent-run checks. Final student review, private data delivery remain pending. Earlier audit reports describe historical states and are not the current execution status.
 
 ## Reproduce the integration
 Run from the repository root. PostgreSQL must be running, and the configured local role must be allowed to create a database. Obtain the authorized private package containing `data/private/` through the agreed course submission route.
@@ -19,7 +19,7 @@ export PGDATABASE=movies_codex_test_your_unique_name
 
 The build refuses to replace an existing database and verifies all CSV hashes, headers and row counts. If the name already exists, choose a new name. For read-only checks on an existing database, set PGDATABASE to that name and omit `--test-threshold-update`.
 
-Open `python/shared/HeyEncapsulator.ipynb` from the repository root in a Python notebook environment, or import `MovieDB` from `python/shared/movie_db.py`. There are 11 extraction methods plus a threshold setter. Notebook output and CSV integration results are based on real execution, not syntax checking alone.
+Open `python/shared/HeyEncapsulator.ipynb` from the repository root in a Python notebook environment, or import `MovieDB` from `python/shared/movie_db.py`. There are 10 extraction methods plus a threshold setter. Notebook output and CSV integration results are based on real execution, not syntax checking alone.
 
 ## Evidence and submission
 - [Actual integration results](tests/INTEGRATION_RESULTS.md)
@@ -31,4 +31,6 @@ Open `python/shared/HeyEncapsulator.ipynb` from the repository root in a Python 
 
 The public repository excludes raw course CSVs, private student logbooks, passwords and full record-level exports. The private package contains those final database CSVs, full extraction CSVs and a database backup, with no stored database password. The lecturer still needs access through an allowed private submission route. Historical audits in tests describe their original point-in-time limitations; the integration results document records current execution evidence.
 
-Remaining human requirements: confirm SQ4 proposals; independent student verification and explanation of code; private data delivery. This repository does not certify a final grade or claim unobserved individual work.
+Remaining human requirements: independent student verification and explanation of code; private data delivery. This repository does not certify a final grade or claim unobserved individual work.
+
+The active schema uses expert_rating, user_rating and sales, matching the supplied table-name reference. Source CSV filenames remain unchanged and are mapped by data/manifest.json. SQ4a uses 5,645 single-sales-match films; the existing SQ3/SQ4 analysis view uses 4,143 review-eligible positive-revenue films. These samples are intentionally kept distinct.
