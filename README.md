@@ -1,7 +1,9 @@
 # Movie box office database
-PostgreSQL and Python course project with a shared team Encapsulator, 13-table schema, reproducible final-CSV import and real integration evidence. Original attributed work: Jonas SQ1, Nethmi SQ2, Amanda SQ3 and SQ4 setup. The active SQ4a is Nethmi's supplied script; SQ4b is excluded from this delivery.
+Amanda's authoritative source is **DB_Assignment_Amanda.zip**, supplied by the user. Its eight files are available in [Amanda](Amanda). SQL files are also mirrored under sql/Amanda for the database build. Original filenames, calculations and functions are retained.
 
-Current technical evidence: [59/59 checks on the chosen schema and supplied SQ4a](tests/INTEGRATION_RESULTS.md). These are agent-run checks. Final student review, private data delivery remain pending. Earlier audit reports describe historical states and are not the current execution status.
+The active Amanda notebook is [DB_Encapsulator.ipynb](Amanda/DB_Encapsulator.ipynb). Its hard-coded database connection was replaced with PostgreSQL environment variables; stored outputs were cleared because they belong to the original connection. All other source files in Amanda are byte-identical to the supplied ZIP.
+
+Earlier reports describe the earlier integrated version. They do not certify this newly selected notebook or the original SQ3 test script. The separate shared module under python/shared is retained as a supplemental earlier integration and is not presented as Amanda's original ZIP source. SQ4b remains outside the current delivery. Nethmi's supplied SQ4a remains under sql/Nethmi.
 
 ## Reproduce the integration
 Run from the repository root. PostgreSQL must be running, and the configured local role must be allowed to create a database. Obtain the authorized private package containing `data/private/` through the agreed course submission route.
@@ -19,7 +21,7 @@ export PGDATABASE=movies_codex_test_your_unique_name
 
 The build refuses to replace an existing database and verifies all CSV hashes, headers and row counts. If the name already exists, choose a new name. For read-only checks on an existing database, set PGDATABASE to that name and omit `--test-threshold-update`.
 
-Open `python/shared/HeyEncapsulator.ipynb` from the repository root in a Python notebook environment, or import `MovieDB` from `python/shared/movie_db.py`. There are 10 extraction methods plus a threshold setter. Notebook output and CSV integration results are based on real execution, not syntax checking alone.
+Open `Amanda/DB_Encapsulator.ipynb` from the repository root in a Python notebook environment, or import `MovieDB` from `python/shared/movie_db.py`. The original notebook has three extraction methods. Current execution against your configured database still needs verification; the earlier ten-method test result concerns the supplemental shared version.
 
 ## Evidence and submission
 - [Actual integration results](tests/INTEGRATION_RESULTS.md)
