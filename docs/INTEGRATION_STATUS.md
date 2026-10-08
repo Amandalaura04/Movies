@@ -1,29 +1,35 @@
-# Integration status and next actions
+# Integration status — 8 October 2026
 
-**Public repository status (2026-10-08):** This is a work-in-progress demonstration of group code and task tracking. A complete runnable PostgreSQL implementation has **not** been verified.
+This is a **public code and task-evidence repository**, not a verified executable submission.
 
-## Published
-- SQ1 descriptive query (Jonas).
-- SQ2 draft query (Nethmi; review exact physical table names).
-- SQ3a, SQ3b, SQ3c (Amanda).
-- SQ3 integration setup draft (Amanda's concepts; **not** verified against SQ2 column names).
-- Issue-based current work inventory, Scrum guidance, and verification template.
+## Published source and supporting files
+- `sql/database/01_create_tables_PUBLIC.sql`: the group's 13-table schema, without local import paths or raw course CSVs.
+- `sql/Jonas/Query_Jonas_SQ1_V2.sql`: SQ1 query (table-name reconciliation still needed).
+- `sql/Nethmi/SQ2_Nethmi.sql`: SQ2 controversy-view draft.
+- `sql/Amanda/SQ3_1_setup_ORIGINAL_SANITIZED.sql`: Amanda's original SQ3 setup with student number removed; caution, it drops views and thresholds.
+- `sql/Amanda/SQ3a_classification.sql`, `SQ3b_sensitivity.sql`, `SQ3c_polarity.sql`: SQ3 analytical queries.
+- `sql/Amanda/SQ3_2_tests_REVISED.sql`: test queries with corrected data-quality check; revised test not executed here.
+- `sql/Amanda/SQ4_setup_Amanda.sql`: Amanda's one-row-per-movie SQ4 view.
+- `python/Amanda/movie_db_encapsulator.py`: public-safe Amanda SQ3/SQ4 Python extraction module.
+- `python/requirements.txt`, `sql/RUN_ORDER.md`, `tests/TEST_EVIDENCE_TEMPLATE.md` and `scrum/SCRUM_BOARD.md`.
+- Twelve GitHub Issues describing remaining work.
 
-## Still missing from GitHub
-- Final schema and data import script with portable paths.
-- Original Amanda SQ3 setup, integrity tests, SQ4 setup and original Python script in vetted public-safe form.
-- Jonas/Nethmi completed SQ4 queries.
-- Tested shared Python encapsulator.
-- Actual GitHub Project board with To do / In progress / Done columns.
-- Reproducible evidence of local PostgreSQL execution.
+## Important: do not execute both SQ3 setup versions
+`sql/Amanda/SQ3_setup_INTEGRATION_DRAFT.sql` is an older integration **draft** with different expected schema, kept as an example. Use the clearly marked sanitized original with the documented dependency on `movie_controversy` instead. Verify against actual PostgreSQL outputs.
 
-## Known schema issues
-- Jonas SQ1 queries reference `user_rating` and `expert_rating`. The physical input tables may instead be named `user_rating_detailed` and `expert_rating_detailed`.
-- The SQ3 integration draft assumes `v_controversy` provides `c_score` and `combined_mean`. Before execution verify these names against the final SQL and adapt the view definition.
-- Do not treat a count of GitHub Issues as evidence of completed tests, historic Scrum meetings, or individual Git commits.
+## Still not published / not verified
+1. Authorized source CSVs and local data import commands; source datasets have intentionally **not** been redistributed publicly.
+2. Amanda's complete original cleaning script and its input/output validation.
+3. Jonas' final E2 / SQ4b and Nethmi's H1/H2 / SQ4a scripts, which were not confirmed in the available uploads. **Do not invent analysis outputs.**
+4. Full shared-team Python encapsulator merging all five or more working methods.
+5. End-to-end PostgreSQL execution, test screenshots, CSV output checks, and accurate row counts.
+6. Real GitHub Projects Kanban board (the Markdown status board and labeled Issues are available).
+7. Real individual Git contributions / collaborator invitations, actual testing evidence and private individual AI logs.
 
-## How to track work
-See the [GitHub Issues](../../issues). To create a Project board, select the repository **Projects** tab and add these issues. Only mark issues Done after real execution or review and link evidence.
+## Known issues
+- Jonas SQ1 uses `user_rating`/`expert_rating`, whereas physical schema uses `user_rating_detailed`/`expert_rating_detailed`.
+- SQL view dependency order is critical: `movie_controversy` → `v_controversy` → `v_reception` → `v_sq4_analysis`.
+- Changing threshold sets or recreating views may affect downstream dependencies. Test on a disposable DB copy first.
+- Public Git commits made by one connected account don't establish earlier individual authorship by other students.
 
-## Privacy and attribution
-No student identifiers, personal AI logbooks, passwords, or redistributed course data should be committed to this public repository. Git commit authorship describes who committed files **now**, not necessarily who originally authored historical offline work.
+See [SQL run order](../sql/RUN_ORDER.md), [Scrum overview](../scrum/SCRUM_BOARD.md), [all Issues](../../issues).
