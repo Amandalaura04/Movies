@@ -1,8 +1,6 @@
-# Current submission status
-- Current schema: expert_rating, user_rating and sales. All runnable code uses these names.
-- Shared Python: ten extractors, including three for the supplied Nethmi SQ4a; executed notebook and real CSV evidence available.
-- Integration: fresh thirteen-CSV build and 59/59 checks passed; see tests/INTEGRATION_RESULTS.md.
-- SQ4b: excluded. Earlier proposal retained only as archived source.
-- Private database delivery: final CSVs, database backup and extraction outputs prepared locally; lecturer delivery route has not been provided.
-- Scrum: native public board has eleven active tasks; SQ4b task #6 is archived. Eight active tasks are technically tested and three remain In Progress.
-- Final review: students must check sample-selection decisions and confirm their source contributions. The two SQ4 samples intentionally differ.
+# Current source selection
+DB_Assignment_Amanda.zip is the authoritative Amanda version. Its source is in Amanda/ with SQL mirrored in sql/Amanda/. The notebook connection settings use environment variables; all other source files are unchanged.
+
+Nethmi's supplied SQ4a remains present. SQ4b remains excluded. The original Amanda notebook and original SQ3 test script have not been re-executed after this source switch. Earlier successful reports concern the separate integrated version and must not be treated as proof for the newly selected original notebook.
+
+The private database package remains local until a lecturer delivery route is provided. The public Scrum board and conceptual ERD are present.
