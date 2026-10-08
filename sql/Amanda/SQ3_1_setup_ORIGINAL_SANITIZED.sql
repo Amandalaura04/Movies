@@ -1,7 +1,7 @@
 -- SQ3 setup: rule sets, classification function and views used by SQ3a-c
 -- Original work: Amanda Luijendijk. Student number removed for public publishing.
 -- Requires SQ2_Nethmi.sql (view movie_controversy).
--- IMPORTANT: drops/recreates SQ3 objects. Run on a test copy; not yet verified here.
+-- IMPORTANT: drops/recreates SQ3 objects. Run on a test copy; executed on the fresh test database on 2026-10-08.
 
 DROP VIEW IF EXISTS v_controversy CASCADE;
 CREATE VIEW v_controversy AS

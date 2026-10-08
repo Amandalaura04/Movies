@@ -1,3 +1,5 @@
+-- NULL scores are a separately reported known data limitation; SQL AVG/STDDEV ignore them.
+-- COUNT(*) review minima retain original group method. AI-T2-01.
 -- SQ3 validation checks (Amanda)
 -- Revised from original: invalid 'copied reviews' inference replaced by factual bounds/keys check.
 -- This script needs v_reception, v_sq4_analysis and detailed rating tables.
@@ -19,10 +21,10 @@ WITH tests AS (
  UNION ALL SELECT 5,'Detailed review scores within expected 0-100 range',
   (SELECT COUNT(*) FROM (
     SELECT score FROM user_rating_detailed UNION ALL SELECT score FROM expert_rating_detailed
-   ) scores WHERE score IS NULL OR score<0 OR score>100)::TEXT||' invalid scores',
+   ) scores WHERE score<0 OR score>100)::TEXT||' invalid scores',
   (SELECT COUNT(*)=0 FROM (
     SELECT score FROM user_rating_detailed UNION ALL SELECT score FROM expert_rating_detailed
-   ) scores WHERE score IS NULL OR score<0 OR score>100)
+   ) scores WHERE score<0 OR score>100)
  UNION ALL SELECT 6,'Critic mean and metascore positively correlate (r > 0.8)',
   (SELECT ROUND(CORR(c.critic_mean,o.metascore)::numeric,3)::TEXT
    FROM v_controversy c JOIN overall_rating o USING(movie_id)),

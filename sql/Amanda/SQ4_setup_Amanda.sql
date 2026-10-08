@@ -1,6 +1,6 @@
 -- SQ4 setup: analysis view with one row per film (input SQ4a, SQ4b and Python)
 -- Original work: Amanda Luijendijk. Student number removed for public publishing.
--- Confirm result against Task 1 and database; not yet executed in this environment.
+-- Confirm result against Task 1 and database; executed on the fresh test database on 2026-10-08.
 DROP VIEW IF EXISTS v_sq4_analysis;
 CREATE VIEW v_sq4_analysis AS
 WITH sales_ranked AS (
