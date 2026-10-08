@@ -1,33 +1,19 @@
-# Database Management — Scrum task board
-**Status recorded:** 8 October 2026. This is a current task inventory reconstructed from existing work, **not** an invented historic Scrum sprint.
+# Current evidence linked task board
+Updated 8 October 2026. This board records current execution and source attribution; it is not fabricated historical sprint evidence. Assignment owners below are intended student responsibilities. New integration and tests were performed by Codex at Amanda request.
 
-The linked GitHub Issues are the live source of truth. Current statuses below represent *remaining verification work*, even when parts of the original SQL were previously drafted.
+| Task | Source owner | Current status | Evidence |
+| --- | --- | --- | --- |
+| #1 SQ3 classification and sensitivity | Amanda | Agent-tested; student review | [SQL](../sql/Amanda/SQ3a_classification.sql), [results](../tests/INTEGRATION_RESULTS.md) |
+| #2 SQL integrity tests | Amanda | Corrected, executed; student review | [checks](../sql/Amanda/SQ3_2_tests_REVISED.sql), [output](../tests/evidence/rebuilt/sql_integrity_tests.csv) |
+| #3 SQ4 analysis view | Amanda | Agent-tested; student review | [view](../sql/Amanda/SQ4_setup_Amanda.sql), [results](../tests/INTEGRATION_RESULTS.md) |
+| #4 SQ3/SQ4 Python | Amanda | Agent-tested; student review | [module](../python/shared/movie_db.py) |
+| #5 SQ1 SQL | Jonas | Names reconciled, executed; student review | [SQL](../sql/Jonas/Query_Jonas_SQ1_V2.sql) |
+| #6 SQ4b E2 | Jonas | Proposal tested; final confirmation pending | [proposal](../sql/Jonas/SQ4b_E2_PROPOSAL.sql) |
+| #7 SQ2 controversy | Nethmi | Agent-tested; student review | [SQL](../sql/Nethmi/SQ2_Nethmi.sql) |
+| #8 SQ4a H1/H2 | Nethmi | Proposal tested; final confirmation pending | [proposal](../sql/Nethmi/SQ4a_H1_H2_PROPOSAL.sql) |
+| #9 Shared Encapsulator | Group | Integrated and tested; student review | [executed notebook](../python/shared/HeyEncapsulator.ipynb) |
+| #10 Schema and data | Group | Fresh database reproduced; private delivery pending | [manifest](../data/manifest.json), [build](../scripts/rebuild_database.py) |
+| #11 Contributions and AI accountability | Group | Attribution and Amanda log draft prepared; other logs pending | [provenance](../docs/CONTRIBUTIONS.md), [AI disclosure](../docs/ai/AI_T2_01.md) |
+| #12 Final integration | Group | Agent technical checks complete; submission review pending | [results](../tests/INTEGRATION_RESULTS.md), [checklist](../docs/INTEGRATION_STATUS.md) |
 
-| To do | In progress | Done |
-| --- | --- | --- |
-| [#1 Amanda — validate SQ3 classification and sensitivity](../../issues/1) | [#9 Group — integrate Python encapsulator](../../issues/9) | No verified completed issue yet |
-| [#2 Amanda — correct SQL integrity tests](../../issues/2) | [#10 Group — confirm SQL schema and data provenance](../../issues/10) | |
-| [#3 Amanda — validate SQ4 analysis view](../../issues/3) | [#11 Group — document real Scrum work and contributions](../../issues/11) | |
-| [#4 Amanda — test SQ3/SQ4 Python extraction](../../issues/4) | | |
-| [#5 Jonas — verify SQ1 descriptive SQL](../../issues/5) | | |
-| [#6 Jonas — complete SQ4b exploratory revenue analysis](../../issues/6) | | |
-| [#7 Nethmi — validate SQ2 controversy logic](../../issues/7) | | |
-| [#8 Nethmi — complete SQ4a H1 and H2](../../issues/8) | | |
-| [#12 Group — reproducible README and final review](../../issues/12) | | |
-
-## Ownership
-- **Amanda:** SQ3 classification, sensitivity, polarity, SQ4 analysis-view setup, data cleaning, Python SQ3/SQ4 functions.
-- **Jonas:** SQ1, SQ4b.
-- **Nethmi:** SQ2, SQ4a.
-- **All members:** database integration, encapsulator, testing, final documentation.
-
-## How to use as process evidence
-1. Update the issue's **status label** when real progress changes: `status: to do`, `status: in progress`, `status: done`.
-2. Add links to real SQL/Python files, executions, test output or commits in the corresponding Issue.
-3. Do not mark work 'done' without checking the result. If an earlier deliverable was completed before GitHub setup, state it was **documented retrospectively**, rather than pretending the GitHub history existed then.
-4. The repository is public: do not add personal logbooks, student numbers, database passwords or course source datasets with unclear redistribution rights.
-5. Save this board URL and a screenshot of the Issues filtered by owner/status for submission evidence.
-
-[All Issues](../../issues) · [Amanda's Issues](../../issues?q=is%3Aissue+label%3A%22owner%3A+Amanda%22) · [Jonas's Issues](../../issues?q=is%3Aissue+label%3A%22owner%3A+Jonas%22) · [Nethmi's Issues](../../issues?q=is%3Aissue+label%3A%22owner%3A+Nethmi%22)
-
-**Limitation:** this Markdown board plus labeled Issues is not a GitHub Projects Kanban board. If the lecturer explicitly requires a native Project board, create one via the GitHub web interface and add Issues #1–#12.
+[Native GitHub Projects board](https://github.com/users/Amandalaura04/projects/3) created on 8 October 2026 and linked to Movies. All 12 issues have evidence comments. Seven technical tasks (#1–5, #7, #9) are in Agent tested / student review; five final confirmation/provenance/accountability tasks (#6, #8, #10–12) are In Progress. Issues remain open and labeled status: in progress until student acceptance. Historic sprint evidence is not invented.
