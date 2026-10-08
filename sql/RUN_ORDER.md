@@ -1,10 +1,8 @@
-# Tested SQL run order
-1. Use `scripts/rebuild_database.py` to create a NEW database and load the 13 final CSVs. It refuses an existing database. The schema's DROP statements execute only in that new empty database.
-2. `sql/Nethmi/SQ2_Nethmi.sql` creates `movie_controversy`.
-3. `sql/Amanda/SQ3_1_setup_ORIGINAL_SANITIZED.sql` creates thresholds, classification function, SQ3 views and indexes. It replaces objects, so run it only through the fresh database build.
-4. `sql/Amanda/SQ4_setup_Amanda.sql` creates the SQ4 analysis view.
-5. Execute Jonas SQ1, Amanda SQ3a/b/c and revised integrity checks.
-6. Execute Nethmi SQ4a and Jonas SQ4b files marked PROPOSAL, awaiting their confirmation. These are descriptive summaries, not causal/inferential hypothesis proof.
-7. Run the shared encapsulator and integration tests; evidence is in `tests/evidence/`.
+# Current tested SQL run order
+1. Run scripts/rebuild_database.py with a NEW database and the final CSV directory. It refuses to replace an existing database and verifies the source hashes.
+2. The schema creates the thirteen tables using expert_rating, user_rating and sales. Manifest entries map those tables to the original detailed/final CSV filenames.
+3. SQ2_Nethmi.sql creates movie_controversy. Amanda's original SQ3 setup creates thresholds and reception views. SQ4_setup_Amanda.sql creates the review-eligible SQ4 analysis view.
+4. SQ4a_Nethmi.sql creates or replaces sq4a_h1_h2 and executes Nethmi's supplied diagnostics and summaries. It preserves the original one-sales-match sample with no minimum review count.
+5. Run the shared Python notebook and scripts/integration_test.py. Current evidence is tests/evidence/final.
 
-The obsolete incompatible setup is archived under `sql/archive/` and excluded from the build. The two missing expert scores are explicitly reported separately from out-of-range scores. SQL aggregates retain the original NULL handling. See `docs/ai/AI_T2_01.md` for integration changes.
+SQ4b and the earlier SQ4a proposal are excluded. Historical source is under sql/archive. The new script is re-runnable with CREATE OR REPLACE VIEW. Existing movies_db was not renamed or replaced; the final build was tested on movies_codex_test_final_20261008.
