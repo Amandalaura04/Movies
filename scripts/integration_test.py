@@ -13,8 +13,8 @@ from movie_db import MovieDB
 
 METHODS=['SQ1_descriptive_stats','SQ2_controversy_score','SQ3_get_reception',
 'SQ3_get_classification','SQ3_threshold_sensitivity','SQ3_viewer_polarity',
-'SQ4_controversy_revenue_evaluation','SQ4a_hypothesis_correlations',
-'SQ4a_revenue_quartiles','SQ4b_category_revenue','SQ4b_controversy_quartiles']
+'SQ4_controversy_revenue_evaluation','SQ4a_sample_counts',
+'SQ4a_critic_bands','SQ4a_viewer_quartiles']
 
 def run(output, private, allow_threshold=False):
  output.mkdir(parents=True,exist_ok=True);private.mkdir(parents=True,exist_ok=True)
@@ -43,14 +43,18 @@ def run(output, private, allow_threshold=False):
   check('SQ3 dummies sum to one',reception[['is_controversial','is_positive','is_negative','is_normal']].sum(axis=1).eq(1).all(),len(reception))
   filtered=db.SQ4_controversy_revenue_evaluation(only_with_budget=True)
   check('Budget filter',filtered.production_budget.gt(0).all(),len(filtered))
-  nulls=db._query('SELECT COUNT(*) FILTER (WHERE score IS NULL) AS missing, COUNT(*) FILTER (WHERE score<0 OR score>100) AS invalid FROM expert_rating_detailed').iloc[0]
+  nulls=db._query('SELECT COUNT(*) FILTER (WHERE score IS NULL) AS missing, COUNT(*) FILTER (WHERE score<0 OR score>100) AS invalid FROM expert_rating').iloc[0]
   check('Known missing critic scores explicitly recorded',int(nulls['missing'])==2,{'missing':int(nulls['missing']),'out_of_range':int(nulls['invalid'])})
-  # Independent Spearman calculation verifies SQL midpoint ranking with ties.
-  correlations=frames['SQ4a_hypothesis_correlations']
-  for col,label in [('critic_mean','H1: critic score'),('viewer_n','H2: viewer review count')]:
-   expected_r=sq4[col].rank(method='average').corr(sq4.ln_revenue.rank(method='average'))
-   actual=float(correlations.loc[correlations.hypothesis==label,'spearman'].iloc[0])
-   check('Spearman midpoint ranks '+col,abs(actual-expected_r)<=0.000501,{'sql':actual,'python':float(expected_r)})
+  sample=db._query('SELECT * FROM sq4a_h1_h2')
+  check('SQ4a unique movie rows',sample.movie_id.is_unique,len(sample))
+  eligible=db._query("""SELECT COUNT(*) AS n FROM (
+    SELECT ms.movie_id FROM movie_sales ms JOIN sales s USING(sales_id)
+    GROUP BY ms.movie_id HAVING COUNT(DISTINCT ms.sales_id)=1
+    AND MAX(s.worldwide_box_office) IS NOT NULL) q""").iloc[0,0]
+  check('SQ4a sample matches its supplied sales restrictions',len(sample)==int(eligible),len(sample))
+  counts=frames['SQ4a_sample_counts'].iloc[0]
+  check('SQ4a H1 band population',int(frames['SQ4a_critic_bands'].n_films.sum())==int(counts.films_for_h1),int(counts.films_for_h1))
+  check('SQ4a H2 quartile population',int(frames['SQ4a_viewer_quartiles'].n_films.sum())==int(counts.films_for_h2),int(counts.films_for_h2))
   sql_tests=db._query((ROOT/'sql/Amanda/SQ3_2_tests_REVISED.sql').read_text());sql_tests.to_csv(output/'sql_integrity_tests.csv',index=False)
   for row in sql_tests.to_dict('records'):check('SQL: '+row['test'],row['result']=='PASS',row['observed'])
   if allow_threshold:
@@ -64,7 +68,7 @@ def run(output, private, allow_threshold=False):
    finally:db.SQ3_set_active_threshold(original)
    check('Threshold restored',db._query('SELECT threshold_set FROM classification_thresholds WHERE is_active').iloc[0,0]==original,original)
   # Execute every published current SQL script, preserving actual text results.
-  sql_files=['sql/Jonas/Query_Jonas_SQ1_V2.sql','sql/Amanda/SQ3a_classification.sql','sql/Amanda/SQ3b_sensitivity.sql','sql/Amanda/SQ3c_polarity.sql','sql/Nethmi/SQ4a_H1_H2_PROPOSAL.sql','sql/Jonas/SQ4b_E2_PROPOSAL.sql']
+  sql_files=['sql/Jonas/Query_Jonas_SQ1_V2.sql','sql/Amanda/SQ3a_classification.sql','sql/Amanda/SQ3b_sensitivity.sql','sql/Amanda/SQ3c_polarity.sql']
   with db.engine.connect() as conn:
    for filename in sql_files:
     with (private/(Path(filename).stem+'.txt')).open('w') as f:
@@ -77,7 +81,7 @@ def run(output, private, allow_threshold=False):
   for m in METHODS[3:]:
    if m=='SQ4_controversy_revenue_evaluation':continue
    frames[m].drop(columns=['clearest_examples'],errors='ignore').to_csv(output/(m+'.csv'),index=False)
- report={'executed_utc':datetime.now(timezone.utc).isoformat(),'database':os.getenv('PGDATABASE','movies_db'),'server_version':version,'checks':checks,'exports':exports,'passed':all(x['passed'] for x in checks),'limitations':['Two missing critic scores are retained; AVG/STDDEV ignore NULL, COUNT(*) includes reviews.','SQ4a/SQ4b are tested proposals awaiting confirmation by their intended student owners.','Technical checks are agent-run; independent student verification remains required.']}
+ report={'executed_utc':datetime.now(timezone.utc).isoformat(),'database':os.getenv('PGDATABASE','movies_db'),'server_version':version,'checks':checks,'exports':exports,'passed':all(x['passed'] for x in checks),'limitations':['Two missing critic scores are retained; AVG/STDDEV ignore NULL, COUNT(*) includes reviews.','SQ4a keeps the supplied single-sales-match sample, without a five-review minimum. SQ4b is excluded.','Technical checks are agent-run; independent student verification remains required.']}
  (output/'integration_report.json').write_text(json.dumps(report,indent=2))
  print('Checks:',len(checks),'Passed:',sum(c['passed'] for c in checks),'Overall:',report['passed'])
  for c in checks:
