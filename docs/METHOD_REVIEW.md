@@ -9,4 +9,3 @@ Reproduction starts from the thirteen final CSV files identified by data/manifes
 
 The current successful execution report is tests/INTEGRATION_RESULTS.md. DEFINITIVE_FILES_AUDIT_2026-10-08.md and TECHNICAL_AUDIT_2026-10-08.md are historical reports from before PostgreSQL integration. The single executable setup route is scripts/rebuild_database.py and sql/RUN_ORDER.md. The archived alternative SQ3 draft is excluded.
 
-Student sign-offs and individual logbooks must come from the actual students. No independent authorship, approval, lecturer access or final grade is inferred from these technical checks.

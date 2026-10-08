@@ -10,6 +10,5 @@
 | Individual contributions | Source comments and provenance matrix | Named students confirm attribution; one-account history is not three-person authorship proof |
 | GitHub publication | Code, shared notebook and real test evidence published via authenticated GitHub UI | Student final review required |
 
-See tests/INTEGRATION_RESULTS.md for actual pass counts. Technical integration and final submission compliance are distinct: human verification and missing logbooks cannot be generated as facts by the agent.
 
 [Native task board](https://github.com/users/Amandalaura04/projects/3): seven tasks Agent tested / student review, five In Progress. All 12 issue comments link current evidence.
