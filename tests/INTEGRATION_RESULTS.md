@@ -1,4 +1,6 @@
-# Current integration results
+# Historical integration results
+**Source changed:** Amanda's supplied DB_Assignment_Amanda.zip is now authoritative. This report validates the earlier integrated version, not the original notebook and SQ3 test script newly selected from that ZIP. Their fresh execution is pending.
+
 Executed 8 October 2026 on PostgreSQL 18.6 using a new database built from the thirteen exact final CSVs.
 
 **59 of 59 checks passed.** All ten current extraction methods returned DataFrames and passed CSV row/column round trips. The executed notebook uses the current shared source. The threshold setter was tested only on the disposable database and the original setting was restored.
