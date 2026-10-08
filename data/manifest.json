@@ -57,7 +57,7 @@
     "sha256": "ffb2084110bb7a41ac65323207b20aeec707d8fd489a682407aaf763d05e9de1"
   },
   {
-    "table": "sales_final",
+    "table": "sales",
     "filename": "sales_final.csv",
     "rows": 30611,
     "columns": [
@@ -90,7 +90,7 @@
     "sha256": "cdf625c55d19b15f2ed638f5134fd5d88028b0b13561885e35e96d12209afa3b"
   },
   {
-    "table": "user_rating_detailed",
+    "table": "user_rating",
     "filename": "user_rating_detailed.csv",
     "rows": 316212,
     "columns": [
@@ -102,7 +102,7 @@
     "sha256": "b6382d1839419cef106bb8250e616b530610597f781dcc1ed107b700494b5ce8"
   },
   {
-    "table": "expert_rating_detailed",
+    "table": "expert_rating",
     "filename": "expert_rating_detailed.csv",
     "rows": 238737,
     "columns": [
