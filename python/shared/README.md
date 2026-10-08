@@ -1,6 +1,6 @@
 # Shared team encapsulator
-The uploaded HeyEncapsulator notebook is the source for the seven original extraction methods and threshold setter. The shared module preserves their attribution while fixing connection handling and physical table names. Four SQ4 methods integrate the locally supplied proposals; these are not claimed as original code by Jonas or Nethmi.
+The shared module contains seven original extraction methods and three SQ4a extraction methods for sample counts, critic-score bands and viewer-review-count quartiles. SQ4b methods are excluded. PostgreSQL connection settings use environment variables.
 
-From repository root, install `python/requirements.txt`, set PostgreSQL environment variables, and open `python/shared/HeyEncapsulator.ipynb`. The notebook has been executed on the rebuilt test database. For actual full CSV exports and checks, run `scripts/integration_test.py` as documented in the root README. The public notebook records population counts; record-level exports are included only in the private package.
+Use the table names expert_rating, user_rating and sales. The tested setup is scripts/rebuild_database.py with data/manifest.json and sql/RUN_ORDER.md. The original CSV filenames remain unchanged.
 
-The threshold setter changes a database table and should be used intentionally. The test runner only exercises it on a named disposable test DB and restores its previous value.
+Nethmi's supplied SQ4a view is separate from Amanda's review-eligible SQ4 setup. SQ4a retains its single-sales-match restriction, no five-review minimum, and nonmissing revenue rule. Do not compare the two samples as if they were identical. The executed notebook and tests/evidence/final report record the actual outputs.

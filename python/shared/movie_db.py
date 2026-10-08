@@ -49,7 +49,7 @@ class MovieDB:
                     movie_id,
                     COUNT(*) AS user_count,
                     ROUND(AVG(score)::numeric, 2) AS user_mean
-                FROM user_rating_detailed
+                FROM user_rating
                 GROUP BY movie_id
             ) AS u ON u.movie_id = m.movie_id
             LEFT JOIN (
@@ -57,7 +57,7 @@ class MovieDB:
                     movie_id,
                     COUNT(*) AS expert_count,
                     ROUND(AVG(score)::numeric, 2) AS expert_mean
-                FROM expert_rating_detailed
+                FROM expert_rating
                 GROUP BY movie_id
             ) AS e ON e.movie_id = m.movie_id
             ORDER BY m.title;
@@ -179,14 +179,27 @@ class MovieDB:
         return df
 
     # Integration of local SQ4 proposals,; not attributed as original student code.
-    def SQ4a_hypothesis_correlations(self):
-        return self._file_query("sql/Nethmi/SQ4a_H1_H2_PROPOSAL.sql", 0)
+    # SQ4a extraction from Nethmi's supplied view.
+    def SQ4a_sample_counts(self):
+        return self._query("""SELECT COUNT(*) AS films_with_sales,
+            COUNT(*) FILTER (WHERE mean_critic_score IS NOT NULL) AS films_for_h1,
+            COUNT(*) FILTER (WHERE viewer_review_count > 0) AS films_for_h2,
+            COUNT(*) FILTER (WHERE mean_critic_score IS NOT NULL AND viewer_review_count > 0) AS films_for_both
+            FROM sq4a_h1_h2""")
 
-    def SQ4a_revenue_quartiles(self):
-        return self._file_query("sql/Nethmi/SQ4a_H1_H2_PROPOSAL.sql", 1)
+    def SQ4a_critic_bands(self):
+        return self._query("""SELECT FLOOR(mean_critic_score / 20) * 20 AS critic_band_start,
+            COUNT(*) AS n_films, AVG(worldwide_box_office) AS avg_revenue,
+            MIN(worldwide_box_office) AS min_revenue, MAX(worldwide_box_office) AS max_revenue
+            FROM sq4a_h1_h2 WHERE mean_critic_score IS NOT NULL
+            GROUP BY FLOOR(mean_critic_score / 20) * 20 ORDER BY critic_band_start""")
 
-    def SQ4b_category_revenue(self):
-        return self._file_query("sql/Jonas/SQ4b_E2_PROPOSAL.sql", 0)
-
-    def SQ4b_controversy_quartiles(self):
-        return self._file_query("sql/Jonas/SQ4b_E2_PROPOSAL.sql", 1)
+    def SQ4a_viewer_quartiles(self):
+        return self._query("""SELECT review_quartile, COUNT(*) AS n_films,
+            MIN(viewer_review_count) AS min_reviews, MAX(viewer_review_count) AS max_reviews,
+            AVG(worldwide_box_office) AS avg_revenue, MIN(worldwide_box_office) AS min_revenue,
+            MAX(worldwide_box_office) AS max_revenue
+            FROM (SELECT viewer_review_count, worldwide_box_office,
+                NTILE(4) OVER (ORDER BY viewer_review_count) AS review_quartile
+                FROM sq4a_h1_h2 WHERE viewer_review_count > 0) q
+            GROUP BY review_quartile ORDER BY review_quartile""")
