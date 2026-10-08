@@ -13,7 +13,7 @@ Updated 8 October 2026. This board records current execution and source attribut
 | #8 SQ4a H1/H2 | Nethmi | Proposal tested; final confirmation pending | [proposal](../sql/Nethmi/SQ4a_H1_H2_PROPOSAL.sql) |
 | #9 Shared Encapsulator | Group | Integrated and tested; student review | [executed notebook](../python/shared/HeyEncapsulator.ipynb) |
 | #10 Schema and data | Group | Fresh database reproduced; private delivery pending | [manifest](../data/manifest.json), [build](../scripts/rebuild_database.py) |
-| #11 Contributions and AI accountability | Group | Attribution and Amanda log draft prepared; other logs pending | [provenance](../docs/CONTRIBUTIONS.md), [AI disclosure](../docs/ai/AI_T2_01.md) |
+| #11 Contribution documentation | Group | Source attribution documented | [provenance](../docs/CONTRIBUTIONS.md) |
 | #12 Final integration | Group | Agent technical checks complete; submission review pending | [results](../tests/INTEGRATION_RESULTS.md), [checklist](../docs/INTEGRATION_STATUS.md) |
 
 [Native GitHub Projects board](https://github.com/users/Amandalaura04/projects/3) created on 8 October 2026 and linked to Movies. All 12 issues have evidence comments. Seven technical tasks (#1–5, #7, #9) are in Agent tested / student review; five final confirmation/provenance/accountability tasks (#6, #8, #10–12) are In Progress. Issues remain open and labeled status: in progress until student acceptance. Historic sprint evidence is not invented.
