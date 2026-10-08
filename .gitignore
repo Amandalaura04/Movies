@@ -4,12 +4,13 @@
 *.pem
 *.dump
 *.backup
+.venv/
 __pycache__/
 .ipynb_checkpoints/
 .DS_Store
 output/
 *.pyc
-# Raw course data and personal documents intentionally excluded from public repository
-data/
+data/private/
+private_exports/
 *.xlsx
 *.docx
