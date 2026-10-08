@@ -1,7 +1,7 @@
 # Movie box office database
 PostgreSQL and Python course project with a shared team Encapsulator, 13-table schema, reproducible final-CSV import and real integration evidence. Original attributed work: Jonas SQ1, Nethmi SQ2, Amanda SQ3 and SQ4 setup. SQ4a/SQ4b are tested proposals awaiting confirmation by the intended owners.
 
-Current technical evidence: [61/61 checks on the full rebuild and 58/58 on the existing database](tests/INTEGRATION_RESULTS.md). These are agent-run checks. Final student review, SQ4 confirmation, private data delivery and individual logbooks remain pending. Earlier audit reports describe historical states and are not the current execution status.
+Current technical evidence: [61/61 checks on the full rebuild and 58/58 on the existing database](tests/INTEGRATION_RESULTS.md). These are agent-run checks. Final student review, SQ4 confirmation, private data delivery remain pending. Earlier audit reports describe historical states and are not the current execution status.
 
 ## Reproduce the integration
 Run from the repository root. PostgreSQL must be running, and the configured local role must be allowed to create a database. Obtain the authorized private package containing `data/private/` through the agreed course submission route.
@@ -31,4 +31,4 @@ Open `python/shared/HeyEncapsulator.ipynb` from the repository root in a Python 
 
 The public repository excludes raw course CSVs, private student logbooks, passwords and full record-level exports. The private package contains those final database CSVs, full extraction CSVs and a database backup, with no stored database password. The lecturer still needs access through an allowed private submission route. Historical audits in tests describe their original point-in-time limitations; the integration results document records current execution evidence.
 
-Remaining human requirements: confirm SQ4 proposals; independent student verification and explanation of code; individual logbooks for Jonas/Nethmi; required lecturer approval records where applicable; private data delivery. This repository does not certify a final grade or claim unobserved individual work.
+Remaining human requirements: confirm SQ4 proposals; independent student verification and explanation of code; private data delivery. This repository does not certify a final grade or claim unobserved individual work.
