@@ -1,4 +1,4 @@
-"""Real PostgreSQL/Python checks. AI-assisted integration AI-T2-01.
+"""Real PostgreSQL/Python checks. Integration.
 Read-only except threshold tests on an explicitly named disposable test database.
 """
 import argparse, contextlib, hashlib, io, json, os, sys

@@ -1,4 +1,4 @@
-"""Rebuild into a NEW database only; AI-assisted integration AI-T2-01."""
+"""Rebuild into a NEW database only; Integration."""
 import argparse, csv, hashlib, json, os
 from pathlib import Path
 import psycopg2
