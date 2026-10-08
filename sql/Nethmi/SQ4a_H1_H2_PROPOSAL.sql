@@ -1,5 +1,4 @@
 -- Local proposal, not confirmed as the named student's final contribution.
--- Integration and tie corrections: Codex at Amanda request (AI-T2-01).
 -- SQ4a | H1 (critic score) and H2 (viewer review volume) vs worldwide revenue
 -- Draft for Nethmi: adapt and add your own name and student ID
 
