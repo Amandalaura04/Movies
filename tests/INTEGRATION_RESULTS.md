@@ -1,19 +1,16 @@
-# Actual integration results
-Executed 8 October 2026 against PostgreSQL 18 on Amanda's Mac.
+# Current integration results
+Executed 8 October 2026 on PostgreSQL 18.6 using a new database built from the thirteen exact final CSVs.
 
-| Environment | Passed | Total | Scope |
-| --- | ---: | ---: | --- |
-| Fresh final-CSV rebuild | 61 | 61 | 13 CSV imports, 11 extracts, CSV checks, SQL scripts, threshold mutation/restoration |
-| Existing movies_db | 58 | 58 | Read-only extraction, CSV, population, integrity and SQL checks |
+**59 of 59 checks passed.** All ten current extraction methods returned DataFrames and passed CSV row/column round trips. The executed notebook uses the current shared source. The threshold setter was tested only on the disposable database and the original setting was restored.
 
-Both integration reports have overall passed=true. These are agent-run technical checks; independent student verification remains pending. The setup ran only on the fresh database; no data or views in existing movies_db were replaced.
+The chosen table names are expert_rating, user_rating and sales, matching the supplied screenshot. Original CSV filenames and hashes are preserved in data/manifest.json. The existing movies_db was not modified.
 
-Confirmed counts: 11,344 movie records; 30,611 sales rows; 316,212 user reviews; 238,737 expert reviews; 5,449 eligible SQ3 films; 4,143 positive-revenue SQ4 films. Categories: Controversial 4,322; Positive 709; Normal 392; Negative 26.
+Nethmi SQ4a sample: 5,645 films with one sales match and nonmissing revenue; 5,644 have a critic mean (H1), 5,264 have viewer reviews (H2), 5,263 satisfy both. Python critic-band and viewer-quartile totals agree with those counts. SQ4a preserves the supplied sampling rules and is not restricted to five reviews per group.
 
-The seven original shared-notebook extraction methods plus four proposal extraction methods all returned nonempty DataFrames. Each full CSV export was read back and checked for row count and column equality; hashes are in the JSON reports. Aggregate SQ3/SQ4 exports are public here. Full record-level extracts and sampled SQL text output are in the private submission package. The notebook has actual execution counts and population output from the fresh build.
+Amanda's SQ3 sample remains 5,449 films, with categories 4,322 Controversial, 709 Positive, 392 Normal and 26 Negative. Amanda's positive-revenue SQ4 view remains 4,143 films. Its sampling rule differs from Nethmi's SQ4a and was not silently changed.
 
-Meaningful checks include original-audit population agreement, SQL dummy/uniqueness/range checks, midpoint-rank Spearman comparison in Python, import counts, budget filtering, unknown-threshold rejection, and restoration of the active threshold. Foreign-key and primary-key constraints were enforced during the fresh import.
+SQ4b is excluded from the current build and notebook. Earlier 61/61 and 58/58 reports under evidence/rebuilt and evidence/existing describe the previous detailed-table schema and earlier proposal methods; they are historical evidence, not validation of the current SQ4a.
 
-Limitations: two expert scores are NULL and explicitly retained; COUNT(*) includes those reviews while AVG/STDDEV ignore their scores. The original raw-input cleaning pipeline was not rerun. SQ4a/SQ4b are tested proposals, awaiting the intended owners' final confirmation. These descriptive outputs do not prove causal effects or substitute for student understanding. The dated earlier audit reports document their earlier untested state; this document supersedes that execution status only.
+Two missing expert scores are retained. Original-source cleaning has not been rerun; reproduction begins with the supplied final CSVs. The new script's calculations executed successfully, but matching the research method and final student acceptance remain a separate review.
 
-[Fresh rebuild report](evidence/rebuilt/integration_report.json) · [Existing database report](evidence/existing/integration_report.json) · [SQL integrity output](evidence/rebuilt/sql_integrity_tests.csv)
+[Current machine-readable report](evidence/final/integration_report.json) · [Current SQL checks](evidence/final/sql_integrity_tests.csv)
