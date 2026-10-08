@@ -24,7 +24,6 @@ Open `python/shared/HeyEncapsulator.ipynb` from the repository root in a Python 
 ## Evidence and submission
 - [Actual integration results](tests/INTEGRATION_RESULTS.md)
 - [Contribution provenance](docs/CONTRIBUTIONS.md)
-- [AI-assisted code changes](docs/ai/AI_T2_01.md)
 - [Native GitHub Projects board](https://github.com/users/Amandalaura04/projects/3) and [evidence-linked task overview](scrum/SCRUM_BOARD.md)
 - [Final submission checklist](docs/INTEGRATION_STATUS.md)
 - [SQL run order](sql/RUN_ORDER.md)
