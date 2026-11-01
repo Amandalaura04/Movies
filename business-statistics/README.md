@@ -1,21 +1,27 @@
-# Business Statistics: perceived control and age
+# Business Statistics — SQ2
 
-This folder contains two notebooks in simple English.
+Updated for the group's 30 October 2026 question: “How does content personalization influence users' perceived control over their social media feeds across different age groups?”
 
-- `Business_Statistics_SQ2.ipynb`: cleaning, coding, scaling, charts, a Kruskal-Wallis test and a multiple regression.
-- `Business_Statistics_SEM.ipynb`: an exploratory semopy model with three control items and age-group predictors.
+- `Business_Statistics_SQ2.ipynb` is Amanda's current analysis, aligned with the SQ2 section in the shared group notebook.
+- [Shared group notebook](https://colab.research.google.com/drive/1qGZsNhBEB7gmZtuy59oYEtWoXefIS7x5) contains the group's existing work plus the updated SQ2 section.
+- `Business_Statistics_SEM.ipynb` is the earlier exploratory analysis. It does not answer the updated personalisation question and is not the primary SQ2 result.
 
-## Run the notebooks
+## Run
 
-1. Install Python and Jupyter, or use VS Code with the Python and Jupyter extensions.
-2. Run `pip install -r requirements.txt` from this folder.
-3. Keep your authorised local copy of `Responses (3).xlsx` in your Downloads folder. You can change the file path in the notebook.
-4. Open a notebook and run the cells from top to bottom.
+Install `requirements.txt`. Place your authorised `Responses.xlsx` beside the notebook, or set `BS_DATA_PATH` to its location. The loader also checks the earlier Downloads filename and the shared Colab Notebooks folder in mounted Google Drive. Run all cells from top to bottom.
 
-The survey file is not included. Saved outputs have been removed to avoid publishing individual survey responses. Run the notebooks locally to recreate the tables and charts.
+No raw survey data or respondent-level outputs are included in GitHub. Public notebooks have saved outputs cleared. The shared notebook retains aggregate SQ2 results.
 
-## Scope and limits
+## Measurement and results
 
-The notebooks cover SQ2. SQ1 and SQ3 are not fully tested. The SEM control scale is weak (Cronbach alpha about 0.48), so the SEM is exploratory. It does not validate the scale or prove cause and effect. Small and unequal age groups also limit the conclusions.
+The survey does not directly measure the amount of personalisation. SQ2 uses awareness of personal-data-based feed shaping as a limited proxy, with a single perceived-control item as the outcome. The notebook states this mismatch explicitly. Causal effects of personalisation cannot be estimated from these data.
 
-Code was prepared with Codex assistance. The SEM structure follows the course example and the [semopy tutorial](https://semopy.com/tutorial.html). Review the code, credit adapted sources and describe your own contribution before submitting coursework.
+The analysis uses age categories, an age-adjusted OLS model with HC3 standard errors, an ordinal Spearman sensitivity check, and an exploratory interaction model. OLS treats the five response categories as equally spaced. No age groups are merged after inspecting results.
+
+Validated on 1 November 2026 against the shared Responses.xlsx: 685 rows, 57 columns; 673 complete SQ2 responses. Both the full 91-cell group notebook and the focused 16-cell SQ2 notebook executed without cell errors.
+
+The awareness coefficient is -0.027 (95% HC3 CI -0.116 to 0.061; p=0.543). The exploratory interaction has p=0.0000725, but sparse age groups limit interpretation. These are different hypotheses; a nonsignificant overall coefficient does not rule out variation by age. The notebook generates its conclusion from the executed results.
+
+The provisional three-question Bonferroni correction is labelled as provisional. Agree the final family of confirmatory tests with the group. SQ1 and SQ3 are not completed or validated as final analyses by this update.
+
+Prepared with Codex assistance. Review the measurement choices, recruitment assumptions, code and conclusions, and explain your own contribution before submission.
