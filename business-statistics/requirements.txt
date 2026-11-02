@@ -6,3 +6,4 @@ scipy>=1.11
 statsmodels>=0.14
 semopy==2.3.11
 jupyterlab>=4
+scikit-learn>=1.3
