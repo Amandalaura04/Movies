@@ -1,10 +1,10 @@
 # Business Statistics — SQ2
 
-Updated for the group's 30 October 2026 question: “How does content personalization influence users' perceived control over their social media feeds across different age groups?”
+Current SQ2 (reworded on 2 November 2026): “How is awareness of feed personalisation related to perceived control, and does this relationship differ across age groups?”
 
 - `Business_Statistics_SQ2.ipynb` is Amanda Luijendijk's current analysis, aligned with the SQ2 section in the shared group notebook.
 - [Shared group notebook](https://colab.research.google.com/drive/1qGZsNhBEB7gmZtuy59oYEtWoXefIS7x5) contains the group's existing work plus the updated SQ2 section.
-- `Business_Statistics_SEM.ipynb` is the earlier exploratory analysis. It does not answer the updated personalisation question and is not the primary SQ2 result.
+- `Business_Statistics_SEM.ipynb` is the earlier exploratory analysis. It does not answer the current awareness question and is not the primary SQ2 result.
 
 ## Run
 
@@ -14,7 +14,7 @@ No raw survey data or respondent-level outputs are included in GitHub. Public no
 
 ## Measurement and results
 
-The survey does not directly measure the amount of personalisation. SQ2 uses awareness of personal-data-based feed shaping as a limited proxy, with a single perceived-control item as the outcome. The notebook states this mismatch explicitly. Causal effects of personalisation cannot be estimated from these data.
+The survey does not directly measure the amount of personalisation. SQ2 directly studies awareness of personal-data-based feed shaping, with a single perceived-control item as the outcome. The question is worded around awareness to match this measure. The notebook states this mismatch explicitly. Causal effects of personalisation cannot be estimated from these data.
 
 The analysis uses age categories, an age-adjusted OLS model with HC3 standard errors, an ordinal Spearman sensitivity check, and an exploratory interaction model. OLS treats the five response categories as equally spaced. No age groups are merged after inspecting results.
 
@@ -27,3 +27,4 @@ The provisional three-question Bonferroni correction is labelled as provisional.
 Prepared with Codex assistance. Review the measurement choices, recruitment assumptions, code and conclusions, and explain your own contribution before submission.
 
 Amanda Luijendijk’s section includes simple English explanations and supporting rank/scaling work, the earlier age-group comparison, and the model including social media use. Earlier SEM work remains separate and is not used as evidence for the updated question.
+
