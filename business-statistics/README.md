@@ -35,3 +35,10 @@ Amanda Luijendijk’s section includes simple English explanations and supportin
 Added on 2 November 2026: awareness and control are grouped as Disagree (1–2), Neutral (3), and Agree (4–5), for this exploratory independence test only. The regression and SEM retain five-point scores. N=674, Pearson chi-square(4)=8.596, p=0.0720292; Cramér’s V=0.080. All nine expected counts exceed 5 (minimum 12.26). We do not reject independence at 0.05. The test does not account for age and differs from SEM model-fit chi-square.
 
 The updated focused SQ2 notebook (25 cells) and SEM notebook (16 cells) both executed without cell errors. This does not certify the current full group notebook: an existing earlier group cell references an undefined relationship_df.
+
+
+## Updated exploratory SEM — 2 November 2026
+
+Two types of structural paths are included: awareness → latent Control and age-group indicators → latent Control. This is an additive model; the separate regression interaction test addresses moderation. The three candidate control indicators remain unchanged. The model uses 669 complete responses, converges, and has no negative variances. Awareness estimate=0.090 (robust normal-approximation 95% CI 0.026–0.154; unadjusted p=0.00569027). Alpha=0.481, so measurement remains weak. These exploratory latent-factor results are not directly comparable with single-item regression coefficients. Course acceptance of the path structure and indicator choice still needs lecturer confirmation. No causal claim is made.
+
+The focused SQ2 and updated 17-cell SEM notebook executed without cell errors. Full group notebook execution is not certified by this update.
