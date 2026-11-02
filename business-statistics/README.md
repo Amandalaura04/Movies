@@ -28,3 +28,10 @@ Prepared with Codex assistance. Review the measurement choices, recruitment assu
 
 Amanda Luijendijk’s section includes simple English explanations and supporting rank/scaling work, the earlier age-group comparison, and the model including social media use. Earlier SEM work remains separate and is not used as evidence for the updated question.
 
+
+
+## Three-category chi-square check before SEM
+
+Added on 2 November 2026: awareness and control are grouped as Disagree (1–2), Neutral (3), and Agree (4–5), for this exploratory independence test only. The regression and SEM retain five-point scores. N=674, Pearson chi-square(4)=8.596, p=0.0720292; Cramér’s V=0.080. All nine expected counts exceed 5 (minimum 12.26). We do not reject independence at 0.05. The test does not account for age and differs from SEM model-fit chi-square.
+
+The updated focused SQ2 notebook (25 cells) and SEM notebook (16 cells) both executed without cell errors. This does not certify the current full group notebook: an existing earlier group cell references an undefined relationship_df.
